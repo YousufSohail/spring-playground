@@ -8,8 +8,11 @@ import org.junit.jupiter.api.Assertions.*
 
 internal class SpringPlaygroundApplicationTest {
 
+    private lateinit var app: SpringPlaygroundApplication
+
     @BeforeEach
     fun setUp() {
+        app = SpringPlaygroundApplication()
     }
 
     @AfterEach
@@ -18,5 +21,14 @@ internal class SpringPlaygroundApplicationTest {
 
     @Test
     fun hello() {
+        val greeting = app.hello("Taha")
+        assertEquals(greeting, "Hello Taha!")
+    }
+
+
+    @Test
+    fun testSum() {
+        val sum = app.sum(2, 2)
+        assertEquals(sum, 4)
     }
 }
