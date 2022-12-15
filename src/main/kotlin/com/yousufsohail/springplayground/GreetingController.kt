@@ -1,5 +1,6 @@
 package com.yousufsohail.springplayground
 
+import jdk.internal.org.jline.utils.Log
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -24,6 +25,13 @@ class GreetingController {
     @GetMapping("/sum")
     fun sum(@RequestParam(value = "num1") firstNumber: Int, @RequestParam(value = "num2") secondNumber: Int): Int {
         return firstNumber + secondNumber
+    }
+
+    @GetMapping("/student")
+    fun student(): Student {
+        val student = Student("Ammar", "Sohail")
+        Log.debug(student)
+        return student
     }
 
 }
